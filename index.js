@@ -31,7 +31,7 @@ if(message.content == prefix+"stab") {
     //dead = true;
     bot.user.setGame("with Yuri's pocket knife :')");
     setTimeout(function(){
-        bot.user.setGame("s^help || 1.0 BETA");
+        bot.user.setGame("s^help || v1.0");
     }, 3000);
 }
 }});

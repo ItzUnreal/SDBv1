@@ -2,40 +2,70 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = "s^";
 const spam = "ddlc-spam-channel";
-var stop = false;
-var dead = false;
+const tag = "Sayori BETA#4995";
+const extra = require("./extra.json");
+const spammsg = extra.spammsg;
+const glitched01 = extra.glitched01;
+const glitched02 = extra.glitched02;
+const version = "v1.0";
+
+/* Welcome to Sayori's source code! */
 
 bot.on('ready', () => {
-    console.log("Ready.");
-    bot.user.setGame("s^help || 1.0 BETA");
+    console.log("Online.");
+    bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers");
 });
 
 bot.on('message', (message) => {
-    if(dead == false) {
-if(message.channel.name == spam && stop == false) {
-    console.log("Sayori is now spamming in " + message.guild.name);
-    message.channel.send("Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head! Get out of my head!");
-}
-if(message.content == prefix+"stop") {
-    stop = true;
-    message.channel.send("Spam is no longer allowed.");
-}
-if(message.content == prefix+"go") {
-    stop = false;
-    message.channel.send("Spam is now allowed.");
-}
-if(message.content == prefix+"help") {
-    message.channel.send("*All Commands: (Prefix: **s^**, all commands are case sensitive due to lazy coding by Unweal.)* \n stop - Stops spam. \n go - Allows spam again. \n help - ***BOIIIIIIII*** \n *Now get out of my head...* \n (Oh, and there's now s^stab, but who would want to do that to a cute girl like me?)");
-}
-if(message.content == prefix+"stab") {
-    console.log("Sayori has been killed in " + message.guild.name);
-    message.reply("you left me hanging. \n \n        *wxth hxppy thxughts,* \n        Sayori");
-    //dead = true;
-    bot.user.setGame("with Yuri's pocket knife :')");
-    setTimeout(function(){
-        bot.user.setGame("s^help || v1.0");
-    }, 3000);
-}
-}});
+    if(message.author.tag != tag) {
+        if(message.content.startsWith(prefix)) {
+            const args = message.content.substring(prefix.length).split("  ");
+            switch(args[0].toLowerCase()) {
+
+                case 'help':
+                    message.channel.send("[Prefix: **s^**]  *All Commands:* \n head - Get out of my head. \n poem - Show me your poem. \n stab - Why would you..? \n doki - Coming soon™ \n help - This message.");
+                    break;
+
+                case 'head':
+                    if(message.channel.name == spam) {
+                        console.log("Sayori has spammed in " + message.guild.name);
+                        message.channel.send(spammsg);
+                } else {
+                    message.channel.send("*This is not a spam channel.*");
+                }
+                    break;
+
+                case 'stab':
+                    console.log("Sayori has been killed in " + message.guild.name);
+                    message.reply("you left me hanging. \n \n        *wxth hxppy thxughts,* \n        Sayori");
+                    bot.user.setGame("with Yuri's pocket knife :')");
+                    setTimeout(function(){
+                        bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers");
+                     }, 3000);
+                    break;
+
+                case 'poem':
+                    var responses = [
+                        glitched01,
+                        glitched02,
+                        "Exceptional.. ",
+                        "This... is very good!",
+                        "You caught on quickly, are you sure this is your first poem?",
+                        "Your last one was better.",
+                        "It has some flaws.",
+                        "Don't waste my time."
+                    ]
+
+                    var result = Math.floor((Math.random() * responses.length) + 0);
+                    message.reply(responses[result]);
+                    break;
+
+                default:
+                    message.channel.send("*404 - command not found. Have you tried turning it off then on again?*");
+                    break;
+            }
+        }
+    }
+});
 
 bot.login(process.env.BOT_TOKEN);

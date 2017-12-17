@@ -23,7 +23,7 @@ bot.on('message', (message) => {
             switch(args[0].toLowerCase()) {
 
                 case 'help':
-                    message.channel.send("[Prefix: **s^**]  *All Commands:* \n head - Get out of my head. \n poem - Show me your poem. \n stab - Why would you..? \n doki - Coming soon™ \n help - This message.");
+                    message.channel.send("[Prefix: **s^**]  *All Commands:* \n head - Get out of my head. (only works in a channel with the name 'ddlc-spam-channel'!) \n poem - Show me your poem. \n stab - Why would you..? \n doki - Coming soon™ \n help - This message.");
                     break;
 
                 case 'head':

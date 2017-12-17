@@ -12,7 +12,7 @@ const version = "v1.0";
 /* Welcome to Sayori's source code! */
 
 bot.on('ready', () => {
-    console.log("Online.");
+    console.log("Online. [" + version + ", " + bot.guilds.size + " servers.]");
     bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers");
 });
 

@@ -28,8 +28,11 @@ if(message.content == prefix+"help") {
 }
 if(message.content == prefix+"stab") {
     message.reply("you left me hanging. \n \n        *wxth hxppy thxughts,* \n        Sayori");
-    dead = true;
+    //dead = true;
     bot.user.setGame("with Yuri's pocket knife :')");
+    setTimeout(function(){
+        bot.user.setGame("s^help || 1.0 BETA");
+    }, 3000);
 }
 }});
 

@@ -48,7 +48,7 @@ bot.on('message', (message) => {
                         file: imagebase.yuri0
                     });
                     message.reply("you're so edgy. \n \n        *with hugs and slashes,* \n        Yuri");
-                    bot.user.setGame("with a pocket knife :)");
+
                     break;
 
                 case 'hang':

@@ -2,12 +2,15 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = "s^";
 const spam = "ddlc-spam-channel";
-const tag = "Sayori#0448";
+const tag = "Sayori BETA#4995";
 const extra = require("./extra.json");
+const imagebase = require("./imagebase.json")
 const spammsg = extra.spammsg;
 const glitched01 = extra.glitched01;
 const glitched02 = extra.glitched02;
-const version = "v1.0";
+const monika1 = extra.monika1;
+const monika2 = extra.monika2;
+const version = "v1.1";
 
 /* Welcome to Sayori's source code! */
 
@@ -17,18 +20,23 @@ bot.on('ready', () => {
 });
 
 bot.on('message', (message) => {
+    bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers");
     if(message.author.tag != tag) {
         if(message.content.startsWith(prefix)) {
             const args = message.content.substring(prefix.length).split("  ");
             switch(args[0].toLowerCase()) {
 
                 case 'help':
-                    message.channel.send("[Prefix: **s^**]  *All Commands:* \n head - Get out of my head. (only works in a channel with the name 'ddlc-spam-channel'!) \n poem - Show me your poem. \n stab - Why would you..? \n doki - Coming soon™ \n help - This message.");
+                    message.channel.send("*All Commands:* \n\nPrefix: **s^**\n trigger - Get out of my head. **(only works in a channel with the name 'ddlc-spam-channel')** \n poem - Show me your poem. \n stab, hang, vomit, or delete - Why would you..? \n doki - Shows an image of a random Doki Doki character - Coming soon™ \n help - This message.");
                     break;
 
-                case 'head':
+                case 'trigger':
                     if(message.channel.name == spam) {
-                        console.log("Sayori has spammed in " + message.guild.name);
+                        console.log("Sayori has began spamming in " + message.guild.name);
+                        message.channel.send(spammsg);
+                        message.channel.send(spammsg);
+                        message.channel.send(spammsg);
+                        message.channel.send(spammsg);
                         message.channel.send(spammsg);
                 } else {
                     message.channel.send("*This is not a spam channel.*");
@@ -36,12 +44,35 @@ bot.on('message', (message) => {
                     break;
 
                 case 'stab':
-                    console.log("Sayori has been killed in " + message.guild.name);
+                    message.channel.send("", {
+                        file: imagebase.yuri0
+                    });
+                    message.reply("you're so edgy. \n \n        *with hugs and slashes,* \n        Yuri");
+
+                    break;
+
+                case 'hang':
+                    message.channel.send("", {
+                        file: imagebase.sayori0
+                    });
                     message.reply("you left me hanging. \n \n        *wxth hxppy thxughts,* \n        Sayori");
-                    bot.user.setGame("with Yuri's pocket knife :')");
-                    setTimeout(function(){
-                        bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers");
-                     }, 3000);
+
+                    break;
+
+                case 'vomit':
+                    message.channel.send("", {
+                        file: imagebase.natsuki0
+                    });
+                    message.reply("you make me sick. \n \n        *utterly disgusted,* \n        Natsuki");
+
+                    break;
+
+                case 'delete':
+                    message.channel.send("", {
+                        file: imagebase.monika0
+                    });
+                    message.reply(monika1 + "\n \n        " + monika2 + " \n        Monika");
+
                     break;
 
                 case 'poem':
@@ -53,11 +84,27 @@ bot.on('message', (message) => {
                         "You caught on quickly, are you sure this is your first poem?",
                         "Your last one was better.",
                         "It has some flaws.",
-                        "Don't waste my time."
+                        "Don't waste my time.",
+                        "This looks like something Yuri would write...",
+                        "This looks like something I would write...",
+                        "This looks like something Natsuki would write...",
+                        "This looks like something... no one would write! Stupid.",
+                        "*Next!*"
                     ]
 
-                    var result = Math.floor((Math.random() * responses.length) + 0);
-                    message.reply(responses[result]);
+                    var chosen = Math.floor((Math.random() * responses.length) + 0);
+                    message.reply(responses[chosen]);``
+                    break;
+
+                case 'doki':
+                    var images = [
+                        imagebase.yuri1,
+                        imagebase.yuri2
+                    ]
+                    var imgresult = Math.floor((Math.random() * images.length) + 0);
+                    message.channel.send("Here's your doki: ", {
+                        file: images[imgresult]
+                    });
                     break;
 
                 default:

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = "s^";
 const spam = "ddlc-spam-channel";
-const tag = "Sayori BETA#4995";
+const tag = "Sayori#0448";
 const extra = require("./extra.json");
 const imagebase = require("./imagebase.json")
 const spammsg = extra.spammsg;
@@ -16,11 +16,17 @@ const version = "v1.1";
 
 bot.on('ready', () => {
     console.log("Online. [" + version + ", " + bot.guilds.size + " servers.]");
-    bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers");
+    bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers || Just hanging around...");
 });
 
 bot.on('message', (message) => {
-    bot.user.setGame("s^help || " + version + " || " + bot.guilds.size + " servers");
+    if(message.content.includes('Sayori') || message.content.includes('sayori')) {
+        if(message.content.includes('kys') || message.content.includes('KYS')) {
+            message.reply("", {
+                file: imagebase.sayori0
+            });
+        }
+    } 
     if(message.author.tag != tag) {
         if(message.content.startsWith(prefix)) {
             const args = message.content.substring(prefix.length).split("  ");
@@ -93,18 +99,19 @@ bot.on('message', (message) => {
                     ]
 
                     var chosen = Math.floor((Math.random() * responses.length) + 0);
-                    message.reply(responses[chosen]);``
+                    message.reply(responses[chosen]);
                     break;
 
                 case 'doki':
-                    var images = [
+                    /*var images = [
                         imagebase.yuri1,
                         imagebase.yuri2
                     ]
                     var imgresult = Math.floor((Math.random() * images.length) + 0);
                     message.channel.send("Here's your doki: ", {
                         file: images[imgresult]
-                    });
+                    });*/
+                    message.channel.send("Why would you try to use a WIP command >~<");
                     break;
 
                 default:

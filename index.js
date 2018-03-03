@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = "s^";
-const spam = "ddlc-spam-channel";
+const spam = "spam";
 const tag = "Sayori#0448";
 const extra = require("./extra.json");
 const imagebase = require("./imagebase.json")
@@ -33,7 +33,7 @@ bot.on('message', (message) => {
             switch(args[0].toLowerCase()) {
 
                 case 'help':
-                    message.channel.send("*All Commands:* \n\nPrefix: **s^**\n trigger - Get out of my head. **(only works in a channel with the name 'ddlc-spam-channel')** \n poem - Show me your poem. \n stab, hang, vomit, or delete - Why would you..? \n doki - Shows an image of a random Doki Doki character - Coming soon™ \n help - This message.");
+                    message.channel.send("*All Commands:* \n\nPrefix: **s^**\n trigger - Get out of my head. **(only works in a channel with the name 'spam')** \n poem - Show me your poem. \n stab, hang, vomit, or delete - Why would you..? \n doki - Shows an image of a random Doki Doki character - Coming soon™ \n help - This message.");
                     break;
 
                 case 'trigger':

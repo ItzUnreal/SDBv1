@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+/*const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = "s^";
 const spam = "spam";
@@ -122,4 +122,4 @@ bot.on('message', (message) => {
     }
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);*/

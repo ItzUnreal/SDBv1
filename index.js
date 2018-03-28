@@ -12,7 +12,7 @@ const monika1 = extra.monika1;
 const monika2 = extra.monika2;
 const version = "v1.1";
 
-/* Welcome to Sayori's source code! */
+Welcome to Sayori's source code!
 
 bot.on('ready', () => {
     console.log("Online. [" + version + ", " + bot.guilds.size + " servers.]");
@@ -103,14 +103,14 @@ bot.on('message', (message) => {
                     break;
 
                 case 'doki':
-                    /*var images = [
+                    var images = [
                         imagebase.yuri1,
                         imagebase.yuri2
                     ]
                     var imgresult = Math.floor((Math.random() * images.length) + 0);
                     message.channel.send("Here's your doki: ", {
                         file: images[imgresult]
-                    });*/
+                    });
                     message.channel.send("Why would you try to use a WIP command >~<");
                     break;
 
